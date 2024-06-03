@@ -17,6 +17,7 @@ import {
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
 import './App.css'; 
+import logo from './ics-logo.png';
 
 import {
   buildAutocompleteQueryConfig,
@@ -53,7 +54,10 @@ export default function App() {
             <div className="App">
               <ErrorBoundary>
                 <Layout
-                  header={<SearchBox autocompleteSuggestions={true} />}
+                  header={ <div className="header-content">
+                    <img src={logo} alt="ICS Logo" className="ics-logo" />
+                    <SearchBox autocompleteSuggestions={true} className="search-box"/>
+                </div>}
                   sideContent={
                     <div>
                       {wasSearched && (
