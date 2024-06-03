@@ -12,7 +12,7 @@ import {
   ResultsPerPage,
   Paging,
   Sorting,
-  WithSearch
+  WithSearch,
 } from "@elastic/react-search-ui";
 import { Layout } from "@elastic/react-search-ui-views";
 import "@elastic/react-search-ui-views/lib/styles/styles.css";
@@ -25,7 +25,7 @@ import {
   buildSearchOptionsFromConfig,
   buildSortOptionsFromConfig,
   getConfig,
-  getFacetFields
+  getFacetFields,
 } from "./config/config-helper";
 
 const { hostIdentifier, searchKey, endpointBase, engineName } = getConfig();
@@ -33,16 +33,16 @@ const connector = new AppSearchAPIConnector({
   searchKey,
   engineName,
   hostIdentifier,
-  endpointBase
+  endpointBase,
 });
 const config = {
   searchQuery: {
     facets: buildFacetConfigFromConfig(),
-    ...buildSearchOptionsFromConfig()
+    ...buildSearchOptionsFromConfig(),
   },
   autocompleteQuery: buildAutocompleteQueryConfig(),
   apiConnector: connector,
-  alwaysSearchOnInitialLoad: true
+  alwaysSearchOnInitialLoad: true,
 };
 
 export default function App() {
@@ -66,7 +66,7 @@ export default function App() {
                           sortOptions={buildSortOptionsFromConfig()}
                         />
                       )}
-                      {getFacetFields().map(field => (
+                      {getFacetFields().map((field) => (
                         <Facet key={field} field={field} label={field} />
                       ))}
                     </div>
